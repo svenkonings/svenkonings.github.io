@@ -1,0 +1,31 @@
+name: Build and deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: lts
+          cache: npm
+      - name: Build
+        run: npm run build
+      - name: Upload pages artifict
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/
+      - name: Deploy pages
+        id: deployment
+        uses: actions/deploy-pages@v4
