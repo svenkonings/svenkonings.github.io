@@ -5,6 +5,7 @@ import type * as Blog from '@docusaurus/plugin-content-blog';
 const config: Config = {
   title: 'Sven Konings',
   tagline: 'Projects and activities',
+  favicon: '/img/favicon.ico',
   url: 'https://svenkonings.nl',
   baseUrl: '/',
   i18n: {
@@ -48,6 +49,13 @@ const config: Config = {
   themeConfig: {
     navbar: {
       title: 'Sven Konings',
+      logo: {
+        src: '/img/sven.jpg',
+        alt: '',
+        style: {
+          'border-radius': '50%'
+        }
+      },
       items: [
         {to: '/projects', label: 'Projects'},
         {to: '/activities', label: 'Activities'}
