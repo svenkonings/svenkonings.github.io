@@ -1,79 +1,81 @@
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
-import type * as Blog from '@docusaurus/plugin-content-blog';
+import type { Config } from "@docusaurus/types";
+import type * as Preset from "@docusaurus/preset-classic";
+import type * as Blog from "@docusaurus/plugin-content-blog";
 
 const config: Config = {
-  title: 'Sven Konings',
-  tagline: 'Projects and activities',
-  favicon: '/img/favicon.ico',
-  url: 'https://svenkonings.nl',
-  baseUrl: '/',
+  title: "Sven Konings",
+  tagline: "Projects and activities",
+  favicon: "/img/favicon.ico",
+  url: "https://svenkonings.nl",
+  baseUrl: "/",
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en']
+    defaultLocale: "en",
+    locales: ["en"],
   },
   presets: [
     [
-      'classic',
+      "classic",
       {
         docs: false,
         blog: {
-          id: 'projects',
-          routeBasePath: '/projects',
-          path: './projects',
-          blogTitle: 'Projects',
-          blogDescription: 'Overview of my personal projects.',
-          postsPerPage: 'ALL',
-          blogSidebarTitle: 'Projects',
-          blogSidebarCount: 'ALL',
-        }
+          id: "projects",
+          routeBasePath: "/projects",
+          path: "./projects",
+          blogTitle: "Projects",
+          blogDescription: "Overview of my personal projects.",
+          postsPerPage: "ALL",
+          blogSidebarTitle: "Projects",
+          blogSidebarCount: "ALL",
+          onUntruncatedBlogPosts: "ignore",
+        },
       } satisfies Preset.Options,
     ],
   ],
   plugins: [
-    'docusaurus-lunr-search',
+    "docusaurus-lunr-search",
     [
-      '@docusaurus/plugin-content-blog',
+      "@docusaurus/plugin-content-blog",
       {
-        id: 'activities',
-        routeBasePath: '/activities',
-        path: './activities',
-        blogTitle: 'Activities',
-        blogDescription: 'Overview of activities I helped organize.',
-        postsPerPage: 'ALL',
-        blogSidebarTitle: 'Activities',
-        blogSidebarCount: 'ALL',
-      } satisfies Blog.Options
-    ]
+        id: "activities",
+        routeBasePath: "/activities",
+        path: "./activities",
+        blogTitle: "Activities",
+        blogDescription: "Overview of activities I helped organize.",
+        postsPerPage: "ALL",
+        blogSidebarTitle: "Activities",
+        blogSidebarCount: "ALL",
+        onUntruncatedBlogPosts: "ignore",
+      } satisfies Blog.Options,
+    ],
   ],
   themeConfig: {
     navbar: {
-      title: 'Sven Konings',
+      title: "Sven Konings",
       logo: {
-        src: '/img/sven.jpg',
-        alt: '',
+        src: "/img/sven.jpg",
+        alt: "",
         style: {
-          'border-radius': '50%'
-        }
+          "border-radius": "50%",
+        },
       },
       items: [
-        {to: '/projects', label: 'Projects'},
-        {to: '/activities', label: 'Activities'}
-      ]
+        { to: "/projects", label: "Projects" },
+        { to: "/activities", label: "Activities" },
+      ],
     },
     footer: {
       links: [
         {
-          label: 'Github',
-          href: 'https://github.com/svenkonings'
+          label: "Github",
+          href: "https://github.com/svenkonings",
         },
         {
-          label: 'LinkedIn',
-          href: 'https://linkedin.com/in/svenkonings/'
-        }
+          label: "LinkedIn",
+          href: "https://linkedin.com/in/svenkonings/",
+        },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Sven Konings`
-    }
+      copyright: `Copyright © ${new Date().getFullYear()} Sven Konings`,
+    },
   } satisfies Preset.ThemeConfig,
 };
 
